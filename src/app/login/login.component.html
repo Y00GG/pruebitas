@@ -26,7 +26,7 @@
           >
           <input
             type="email"
-            class="form-control form-control-lg rounded-pill"
+            class="form-control"
             [ngClass]="{
               'is-invalid':
                 formulario.get('email')?.invalid &&
@@ -58,7 +58,7 @@
           >
           <input
             type="password"
-            class="form-control form-control-lg rounded-pill"
+            class="form-control"
             id="password"
             formControlName="password"
             [ngClass]="{
@@ -78,7 +78,7 @@
           </div>
         </div>
         <div class="d-grid">
-          <button type="submit" class="btn btn-primary gradient btn-lg mx-5">
+          <button type="submit" class="btn btn-primary gradient mx-5">
             Ingresar
           </button>
         </div>
