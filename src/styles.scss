@@ -1,0 +1,25 @@
+$primary: #3533cd;
+$danger: #ff0013;
+
+body {
+  background: #8acae4 !important;
+}
+
+:root {
+  --primary-gradient: linear-gradient(90deg,
+      rgba(2, 0, 36, 1) 35%,
+      rgba(9, 9, 121, 1) 70%);
+}
+
+$btn-border-radius: 100px !important;
+$btn-border-radius-sm: 100px !important;
+$btn-border-radius-lg: 100px !important;
+
+@import "bootswatch/dist/zephyr/variables";
+@import "bootstrap/scss/bootstrap";
+@import "bootswatch/dist/zephyr/bootswatch";
+
+.gradient {
+  background: var(--primary-gradient);
+  color: white;
+}

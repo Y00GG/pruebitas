@@ -1,0 +1,63 @@
+<div class="row ">
+  <div class="col-8 row fw-bold">
+    <div class="d-flex row gy-4" *ngFor="let document of documents">
+      <div class="col-3">
+        <i class="fa-regular fa-file-pdf fa-8x"></i>
+      </div>
+      <div class="col-6">
+        <p class="h4 fw-bold">Contrato 1</p>
+        <div class="row">
+          <p class="p-4 col-6 text-black">Estado: <span [ngClass]="{
+            'text-danger': document.status === 'Rechazado',
+            'text-success': document.status === 'Aprobado',
+            'text-warning': document.status === 'Pendiente',
+        }">{{document.status}}</span></p>
+          <p class="p-4 col-6 text-black">Fecha: <span>10/06/2023</span></p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="row gy-4">
+          <div class="d-grid">
+            <button class="btn btn-primary gradient btn-lg" (click)="open(content, document)">Ver</button>
+          </div>
+
+          <div class="d-grid">
+            <button class="btn btn-danger btn-lg">Rechazar</button>
+          </div>
+        </div>
+      </div>
+      <hr class="border-black border-2 opacity-1">
+    </div>
+  </div>
+  <div class="col-4 d-flex justify-content-center">
+    <div class="row gy-4">
+      <p class="text-center text-black fw-bold fs-3">SUBIR ARCHIVO</p>
+      <i class="fa-solid fa-file-arrow-up fa-10x text-danger text-center"></i>
+      <p class="text-center text-black fs-6">Maximo 5MB</p>
+      <div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Nombre del archivo</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="">
+        <button class="w-100 btn btn-primary gradient btn-lg">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header ">
+    <h4 class="modal-title" id="modal-basic-title">{{documentCurrent.name}}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+    </form>
+  </div>
+</ng-template>
