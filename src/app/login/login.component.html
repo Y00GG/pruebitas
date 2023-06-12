@@ -29,25 +29,25 @@
             class="form-control"
             [ngClass]="{
               'is-invalid':
-                formulario.get('email')?.invalid &&
-                formulario.get('email')?.touched
+                formulario.get('correo')?.invalid &&
+                formulario.get('correo')?.touched
             }"
-            id="email"
+            id="correo"
             aria-describedby="emailHelp"
-            formControlName="email"
+            formControlName="correo"
             required
           />
           <div
             class="invalid-feedback"
             *ngIf="
-              formulario.get('email')?.invalid &&
-              formulario.get('email')?.touched
+              formulario.get('correo')?.invalid &&
+              formulario.get('correo')?.touched
             "
           >
-            <span *ngIf="formulario.get('email')?.errors?.['required']">
+            <span *ngIf="formulario.get('correol')?.errors?.['required']">
               El correo electrónico es requerido.
             </span>
-            <span *ngIf="formulario.get('email')?.errors?.['email']">
+            <span *ngIf="formulario.get('correo')?.errors?.['correo']">
               Este no es un correo electrónico valido.
             </span>
           </div>
@@ -59,19 +59,19 @@
           <input
             type="password"
             class="form-control"
-            id="password"
-            formControlName="password"
+            id="clave"
+            formControlName="clave"
             [ngClass]="{
               'is-invalid':
-                formulario.get('password')?.invalid &&
-                formulario.get('password')?.touched
+                formulario.get('clave')?.invalid &&
+                formulario.get('clave')?.touched
             }"
           />
           <div
             class="invalid-feedback"
             *ngIf="
-              formulario.get('password')?.invalid &&
-              formulario.get('password')?.touched
+              formulario.get('clave')?.invalid &&
+              formulario.get('clave')?.touched
             "
           >
             La contraseña es requerida.

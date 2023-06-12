@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-client-documents',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class ClientDocumentsComponent {
   documentCurrent: any = {};
+
+  constructor(private apiService: ApiService){
+
+  }
 
   open(document: any) {
     this.documentCurrent = document;

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-login',
@@ -10,20 +11,32 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   formulario: FormGroup;
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private apiService: ApiService) {
+
     this.formulario = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      correo: ['', [Validators.required, Validators.email]],
+      clave: ['', [Validators.required]],
     });
+
   }
 
+
   login(): void {
+
     if (this.formulario.valid) {
-      this.router.navigate(['/my-documents']);
+      console.log(this.formulario.value);
+      this.apiService.login(this.formulario.value).subscribe(({usuario, token}) => {
+        localStorage.setItem('token', token)
+        localStorage.setItem('usuario', JSON.stringify(usuario))
+        this.router.navigate(['/my-documents']);
+      });
     } else {
       Object.keys(this.formulario.controls).forEach((key) => {
         this.formulario.get(key)?.markAsTouched();
       });
     }
+
+
+
   }
 }

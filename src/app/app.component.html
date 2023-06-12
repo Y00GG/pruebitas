@@ -1,4 +1,4 @@
-<div *ngIf="ruta !== '/'">
+<div *ngIf="ruta !== '/home'">
   <div class="d-flex gx-0">
     <div>
       <app-sidebar></app-sidebar>
@@ -11,6 +11,6 @@
   </div>
 </div>
 
-<div *ngIf="ruta === '/'">
+<div *ngIf="ruta === '/home'">
   <router-outlet></router-outlet>
 </div>

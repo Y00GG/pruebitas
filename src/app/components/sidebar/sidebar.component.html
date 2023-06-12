@@ -4,7 +4,7 @@
     [style.width]="screenWidth <= 576 ? '4.5rem' : '280px'"
   >
     <div
-      class=" fs-3 text-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+      class="fs-3 text-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
       *ngIf="screenWidth > 576"
     >
       Revisound
@@ -55,7 +55,7 @@
           class="rounded-circle"
           [class.me-2]="screenWidth > 576"
         />
-        <strong *ngIf="screenWidth > 576">mdo</strong>
+        <strong *ngIf="screenWidth > 576">{{ fullName }}</strong>
       </a>
       <ul
         class="dropdown-menu text-small shadow"
@@ -64,11 +64,15 @@
         "
         ngbDropdownMenu
       >
-        <li><a class="dropdown-item" href="#">Otra cosa...</a></li>
+        <li><a class="dropdown-item text-dark" href="#">Berserk</a></li>
         <li>
           <hr class="dropdown-divider" />
         </li>
-        <li><a class="dropdown-item" routerLink="/">Cerrar sesión</a></li>
+        <li>
+          <a class="dropdown-item text-dark" (click)="logout()"
+            >Cerrar sesión</a
+          >
+        </li>
       </ul>
     </div>
   </div>
